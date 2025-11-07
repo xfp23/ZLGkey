@@ -1,7 +1,8 @@
-#include "ZLGKey.hpp"
+#include "ZLGKey.h"
 #include "MicroSecurity.hpp"   // 确保包含安全算法头
+#include <cstdio>
 using namespace microsec;
-
+using namespace std;
 // 固定密钥
 static const std::vector<uint8_t> g_Key = {
     0x12, 0x34, 0x56, 0x78, 0x9A, 0xBC, 0xDE, 0xF0,
@@ -10,11 +11,11 @@ static const std::vector<uint8_t> g_Key = {
 
 extern "C" __declspec(dllexport)
 int ZLGKey(const uint8_t* seedArray,
-                      uint16_t seedLength,
-                      uint32_t securityLevel,
-                      const char* variantName,
-                      uint8_t* keyArray,
-                      uint16_t* keyLength)
+    uint16_t seedLength,
+    uint32_t securityLevel,
+    const char* variantName,
+    uint8_t* keyArray,
+    uint16_t* keyLength)
 {
 
     if (!seedArray || seedLength == 0 || !keyArray || !keyLength) {

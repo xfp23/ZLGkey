@@ -19,6 +19,7 @@
 #include <cstddef>
 #include <vector>
 #include <string>
+using namespace std;
 
 namespace microsec {
 
